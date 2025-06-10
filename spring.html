@@ -9,48 +9,228 @@
     <link href="css/common.css" rel="stylesheet">
     <link href="css/seasons.css" rel="stylesheet">
     <link href="css/music-1.css" rel="stylesheet">
-    <link href="css/spring-1.css" rel="stylesheet">
+    <style>
+        /* 渐变背景动画 */
+        .gradient-animate {
+            background: linear-gradient(-45deg, #a8e063, #56ab2f, #a8e063, #56ab2f);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 粒子动画 */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: fall 10s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* 浮动动画 */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 打字机效果 */
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end),
+                       blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+
+        /* 发光效果 */
+        .glow {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .glow:hover {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+        }
+
+        /* 文字阴影 */
+        .text-shadow-lg {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 诗句样式 */
+        .poem-text {
+            font-family: 'STKaiti', '楷体', serif;
+            font-style: italic;
+            color: #666;
+            text-align: center;
+            padding: 1rem;
+            border-left: 3px solid #f97316;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(234, 179, 8, 0.1));
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .poem-text::before {
+            content: "🌸";
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            opacity: 0.6;
+        }
+
+        .section-poem {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid rgba(249, 115, 22, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-poem h3 {
+            color: #f97316;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .section-poem p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-family: 'STKaiti', '楷体', serif;
+            font-style: italic;
+        }
+
+        /* 移动端样式调整 */
+        @media (max-width: 768px) {
+            .season-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+                margin-top: 8px;
+            }
+
+            .season-item {
+                padding: 10px 12px;
+            }
+
+            .season-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- 导航栏 -->
-    <nav class="bg-white/60 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300" id="mainNav">
-        <div class="container  mx-auto px-4 py-3 flex justify-between items-center">
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
-              <img src="images/school_logo.png" alt="石大校园标志" class="w-12 h-12 object-contain">
-              <span class="text-xl font-bold text-gray-800">石大校园</span>
+                <i class="fa fa-leaf text-green-600 text-2xl"></i>
+                <span class="text-xl font-bold text-gray-800">校园四季</span>
             </a>
             
             <!-- 桌面端导航 -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">首页</a>
+                <a href="index.html" class="nav-link">首页</a>
                 <div class="relative group">
-                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                    <button class="nav-link flex items-center">
                         校园四季
                         <i class="fa fa-chevron-down ml-1 text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
-                        <div class="py-1" role="menu">
-                            <a href="spring.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">春季</a>
-                            <a href="summer.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">夏季</a>
-                            <a href="autumn.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">秋季</a>
-                            <a href="winter.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">冬季</a>
-                        </div>
+                    <div class="season-menu">
+                        <a href="spring.html" class="season-item season-spring">
+                            <div class="season-icon">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                            <span class="season-text">春季</span>
+                        </a>
+                        <a href="summer.html" class="season-item season-summer">
+                            <div class="season-icon">
+                                <i class="fa fa-sun-o"></i>
+                            </div>
+                            <span class="season-text">夏季</span>
+                        </a>
+                        <a href="autumn.html" class="season-item season-autumn">
+                            <div class="season-icon">
+                                <i class="fa fa-leaf fa-flip-horizontal"></i>
+                            </div>
+                            <span class="season-text">秋季</span>
+                        </a>
+                        <a href="winter.html" class="season-item season-winter">
+                            <div class="season-icon">
+                                <i class="fa fa-snowflake-o"></i>
+                            </div>
+                            <span class="season-text">冬季</span>
+                        </a>
                     </div>
                 </div>
                 <div class="relative group">
-                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                    <button class="nav-link flex items-center">
                         校园活动
                         <i class="fa fa-chevron-down ml-1 text-xs"></i>
                     </button>
                     <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
                         <div class="py-1" role="menu">
-                            <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">活动相册</a>
+                            <a href="gallery.html" class="season-item season-gallery">
+                                <div class="season-icon">
+                                    <i class="fa fa-camera activity-album-icon"></i>
+                                </div>
+                                <span class="season-text">活动相册</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <a href="motto.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">石大精神</a>
-                
-                
+                <a href="motto.html" class="nav-link">校训故事</a>
             </div>
             
             <!-- 移动端菜单按钮 -->
@@ -69,30 +249,50 @@
                         <i class="fa fa-chevron-down text-xs"></i>
                     </button>
                     <div class="hidden pl-4 py-2" id="mobileSeasonSubmenu">
-                        <a href="spring.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">春季</a>
-                        <a href="summer.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">夏季</a>
-                        <a href="autumn.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">秋季</a>
-                        <a href="winter.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">冬季</a>
+                        <a href="spring.html" class="season-item season-spring">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                            <span class="season-text">春季</span>
+                        </a>
+                        <a href="summer.html" class="season-item season-summer">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-sun-o"></i>
+                            </div>
+                            <span class="season-text">夏季</span>
+                        </a>
+                        <a href="autumn.html" class="season-item season-autumn">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-leaf fa-flip-horizontal"></i>
+                            </div>
+                            <span class="season-text">秋季</span>
+                        </a>
+                        <a href="winter.html" class="season-item season-winter">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-snowflake-o"></i>
+                            </div>
+                            <span class="season-text">冬季</span>
+                        </a>
                     </div>
                 </div>
-                <div class="relative group">
-                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                <div class="relative" id="mobileActivityMenu">
+                    <button class="w-full text-left py-2 text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center justify-between">
                         校园活动
-                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        <i class="fa fa-chevron-down text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
-                        <div class="py-1" role="menu">
-                            <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">活动相册</a>
-                        </div>
+                    <div class="hidden pl-4 py-2" id="mobileActivitySubmenu">
+                        <a href="gallery.html" class="season-item season-gallery">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-camera activity-album-icon"></i>
+                            </div>
+                            <span class="season-text">活动相册</span>
+                        </a>
                     </div>
                 </div>
-                <a href="motto.html" class="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">石大校训</a>
-                
-                
+                <a href="motto.html" class="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">校训故事</a>
             </div>
         </div>
     </nav>
-
 
     <!-- 页面标题 -->
     <header class="pt-24 pb-20 gradient-animate text-white relative overflow-hidden">
@@ -115,17 +315,10 @@
                     <span class="inline-block hover:rotate-6 transition-transform duration-300">🌸</span>
                     春季校园
                     <span class="inline-block hover:-rotate-6 transition-transform duration-300">🌺</span>
+                    <!-- 音乐播放器 -->
+                    
                 </h1>
             </div>
-              <!-- 音乐播放器 -->
-                    <div class="music-player" id="musicPlayer">
-                        <img src="images\school_logo.png" alt="背景音乐封面" id="playerImg">
-                        <div class="player-controls">
-                            <i class="fa fa-play" id="playBtn"></i>
-                            <input type="range" min="0" max="100" value="50" id="volumeSlider">
-                            <i class="fa fa-volume-up" id="volumeBtn"></i>
-                        </div>
-                    </div>
             <p class="text-xl md:text-3xl max-w-4xl mx-auto mb-8 typewriter font-light leading-relaxed">
                 春天是万物复苏的季节，校园里百花齐放，一片生机勃勃的景象
             </p>
@@ -139,7 +332,7 @@
                 </p>
             </div>
             
-           <button id="scrollBtn" class="bg-white/20 backdrop-blur-lg text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/30 transition-all duration-300 border border-white/30 glow">
+            <button class="bg-white/20 backdrop-blur-lg text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/30 transition-all duration-300 border border-white/30 glow">
                 <i class="fa fa-play mr-2"></i>
                 探索春日美景
             </button>
@@ -169,12 +362,12 @@
                             春意盎然满校园，生机勃勃展新颜
                         </div>
                     </div>
-                    <div class="relative">
-                        <div class="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden shadow-lg">
-                            <img src="images/icup.jpg" alt="春日校园全景" class="w-full h-full object-cover">
+                    <div class="relative group">
+                        <div class="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1">
+                            <img src="images/icup.jpg" alt="春日校园全景" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         </div>
-                        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-xl overflow-hidden shadow-lg hidden md:block">
-                            <img src="images/dinxiang.jpg" alt="丁香" class="w-full h-full object-cover">
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-xl overflow-hidden shadow-lg hidden md:block transition-all duration-300 hover:-translate-y-1">
+                            <img src="images/dinxiang.jpg" alt="丁香" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         </div>
                     </div>
                 </div>
@@ -194,9 +387,9 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105 group">
                         <div class="h-52 overflow-hidden">
-                            <img src="images/malasong.jpg" alt="迷你马拉松" class="w-full h-full object-cover">
+                            <img src="images/malasong.jpg" alt="迷你马拉松" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-800 mb-3">迷你马拉松</h3>
@@ -212,9 +405,9 @@
                         </div>
                     </div>
                     
-                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105 group">
                         <div class="h-52 overflow-hidden">
-                            <img src="images/yundonghui.jpg" alt="春季运动会" class="w-full h-full object-cover">
+                            <img src="images/yundonghui.jpg" alt="春季运动会" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-800 mb-3">春季运动会</h3>
@@ -230,9 +423,9 @@
                         </div>
                     </div>
                     
-                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105 group">
                         <div class="h-52 overflow-hidden">
-                            <img src="images/shaguo.jpg" alt="沙果" class="w-full h-full object-cover">
+                            <img src="images/shaguo.jpg" alt="沙果" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-800 mb-3">花卉绽放</h3>
@@ -264,7 +457,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-105">
                         <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                             <img src="images/spring.jpg" alt="立春" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
@@ -277,7 +470,7 @@
                         </div>
                     </div>
                     
-                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-105">
                         <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                             <img src="images/yuyemei.jpg" alt="榆叶梅" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
@@ -290,7 +483,7 @@
                         </div>
                     </div>
                     
-                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-105">
                         <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                             <img src="images/lake.jpg" alt="湖边春色" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
@@ -303,7 +496,7 @@
                         </div>
                     </div>
                     
-                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-105">
                         <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                             <img src="images/malan.jpg" alt="马兰花开" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
@@ -316,7 +509,7 @@
                         </div>
                     </div>
                     
-                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-105">
                         <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                             <img src="images/Rainbow.jpg" alt="雨后彩虹" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
@@ -329,7 +522,7 @@
                         </div>
                     </div>
                     
-                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 hover:scale-105">
                         <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                             <img src="images/cupk.jpg" alt="春日校园" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         </div>
@@ -366,7 +559,12 @@
                         <li><a href="summer.html" class="text-gray-400 hover:text-green-400 transition-colors">夏季校园</a></li>
                         <li><a href="autumn.html" class="text-gray-400 hover:text-green-400 transition-colors">秋季校园</a></li>
                         <li><a href="winter.html" class="text-gray-400 hover:text-green-400 transition-colors">冬季校园</a></li>
-                        <li><a href="gallery.html" class="text-gray-400 hover:text-green-400 transition-colors">活动相册</a></li>
+                        <li><a href="gallery.html" class="season-item season-gallery">
+                            <div class="season-icon">
+                                <i class="fa fa-camera activity-album-icon"></i>
+                            </div>
+                            <span class="season-text">活动相册</span>
+                        </a></li>
                         <li><a href="motto.html" class="text-gray-400 hover:text-green-400 transition-colors">石大精神</a></li>
                     </ul>
                 </div>
@@ -416,8 +614,24 @@
         </div>
     </footer>
 
+    <!-- 音乐播放器 -->
+    <div class="music-player music-player-spring">
+        <div class="play-btn" id="playBtn">
+            <i class="fa fa-play" id="playIcon"></i>
+        </div>
+        <div class="song-info">
+            <span class="song-title">春日私语</span>
+            <span class="song-artist">群星</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="music/spring.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
     <script src="javascript/menu.js"></script>
-    <script src="javascript/turn.js"></script>
     <script src="javascript/music-1.js"></script>
 </body>
 </html>
