@@ -1,0 +1,136 @@
+
+        /* 轮播图容器样式 */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        /* 轮播图轨道样式 */
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            white-space: nowrap;
+        }
+        
+        /* 轮播图单个幻灯片样式 */
+        .carousel-slide {
+            min-width: 100%;
+            height: 240px;
+            flex-shrink: 0;
+        }
+        
+        /* 轮播图指示器样式 */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        
+        /* 轮播图指示器点样式 */
+        .carousel-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        /* 轮播图指示器激活状态样式 */
+        .carousel-indicator.active {
+            background: white;
+        }
+        
+        /* 轮播图导航按钮样式 */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* 轮播图导航按钮悬停效果 */
+        .carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        /* 轮播图上一张按钮位置 */
+        .carousel-nav.prev {
+            left: 12px;
+        }
+        
+        /* 轮播图下一张按钮位置 */
+        .carousel-nav.next {
+            right: 12px;
+        }
+        
+        /* 轮播图容器悬停时显示导航按钮 */
+        .carousel-container:hover .carousel-nav {
+            opacity: 1;
+        }
+        
+        /* 文字渐变效果样式 */
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* 卡片悬停动画效果 */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* 描述文本高亮样式 */
+        .description-highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        /* 渐变背景动画效果 */
+        .gradient-animate {
+            background: linear-gradient(-45deg, #a6c1ee, #fbc2eb, #a6c1ee, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        /* 活动相册卡片样式 */
+        .season-gallery {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+        }
+        
+        .season-gallery::before {
+            background: linear-gradient(to bottom, #4ade80, #22c55e);
+        }
+        
+        .season-gallery:hover {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.1), rgba(34, 197, 94, 0.1));
+        }
+        
+        .season-gallery .season-icon {
+            background: #dcfce7;
+            color: #16a34a;
+        }
