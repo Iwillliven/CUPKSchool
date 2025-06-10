@@ -1,54 +1,108 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
+    <!-- 基本元数据设置 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>石大校园</title>
+    <title>石大校园 - 探索四季之美</title>
+    
+    <!-- 引入外部样式和脚本 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="css/seasons.css" rel="stylesheet">
+    <style>
+        /* 渐变背景动画 */
+        .gradient-animate {
+            background: linear-gradient(-45deg, #a6c1ee, #fbc2eb, #a6c1ee, #fbc2eb);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* 移动端样式调整 */
+        @media (max-width: 768px) {
+            .season-menu {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+                margin-top: 8px;
+            }
+
+            .season-item {
+                padding: 10px 12px;
+            }
+
+            .season-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans">
     <!-- 导航栏 -->
-    <nav class="bg-white/60 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300" id="mainNav">
-        <div class="container  mx-auto px-4 py-3 flex justify-between items-center">
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="mainNav">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center space-x-2">
-              <img src="images/school_logo.png" alt="石大校园标志" class="w-12 h-12 object-contain">
-              <span class="text-xl font-bold text-gray-800">石大校园</span>
+                <i class="fa fa-leaf text-green-600 text-2xl"></i>
+                <span class="text-xl font-bold text-gray-800">校园四季</span>
             </a>
             
             <!-- 桌面端导航 -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">首页</a>
+                <a href="index.html" class="nav-link">首页</a>
                 <div class="relative group">
-                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                    <button class="nav-link flex items-center">
                         校园四季
                         <i class="fa fa-chevron-down ml-1 text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
-                        <div class="py-1" role="menu">
-                            <a href="spring.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">春季</a>
-                            <a href="summer.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">夏季</a>
-                            <a href="autumn.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">秋季</a>
-                            <a href="winter.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">冬季</a>
-                        </div>
+                    <div class="season-menu">
+                        <a href="spring.html" class="season-item season-spring">
+                            <div class="season-icon">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                            <span class="season-text">春季</span>
+                        </a>
+                        <a href="summer.html" class="season-item season-summer">
+                            <div class="season-icon">
+                                <i class="fa fa-sun-o"></i>
+                            </div>
+                            <span class="season-text">夏季</span>
+                        </a>
+                        <a href="autumn.html" class="season-item season-autumn">
+                            <div class="season-icon">
+                                <i class="fa fa-leaf fa-flip-horizontal"></i>
+                            </div>
+                            <span class="season-text">秋季</span>
+                        </a>
+                        <a href="winter.html" class="season-item season-winter">
+                            <div class="season-icon">
+                                <i class="fa fa-snowflake-o"></i>
+                            </div>
+                            <span class="season-text">冬季</span>
+                        </a>
                     </div>
                 </div>
                 <div class="relative group">
-                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                    <button class="nav-link flex items-center">
                         校园活动
                         <i class="fa fa-chevron-down ml-1 text-xs"></i>
                     </button>
                     <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
                         <div class="py-1" role="menu">
-                            <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">活动相册</a>
+                            <a href="gallery.html" class="season-item season-gallery">
+                                <div class="season-icon">
+                                    <i class="fa fa-camera activity-album-icon"></i>
+                                </div>
+                                <span class="season-text">活动相册</span>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <a href="motto.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">石大精神</a>
-                
-                
+                <a href="motto.html" class="nav-link">校训故事</a>
             </div>
             
             <!-- 移动端菜单按钮 -->
@@ -67,26 +121,47 @@
                         <i class="fa fa-chevron-down text-xs"></i>
                     </button>
                     <div class="hidden pl-4 py-2" id="mobileSeasonSubmenu">
-                        <a href="spring.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">春季</a>
-                        <a href="summer.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">夏季</a>
-                        <a href="autumn.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">秋季</a>
-                        <a href="winter.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">冬季</a>
+                        <a href="spring.html" class="season-item season-spring">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-leaf"></i>
+                            </div>
+                            <span class="season-text">春季</span>
+                        </a>
+                        <a href="summer.html" class="season-item season-summer">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-sun-o"></i>
+                            </div>
+                            <span class="season-text">夏季</span>
+                        </a>
+                        <a href="autumn.html" class="season-item season-autumn">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-leaf fa-flip-horizontal"></i>
+                            </div>
+                            <span class="season-text">秋季</span>
+                        </a>
+                        <a href="winter.html" class="season-item season-winter">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-snowflake-o"></i>
+                            </div>
+                            <span class="season-text">冬季</span>
+                        </a>
                     </div>
                 </div>
-                <div class="relative group">
-                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                <div class="relative" id="mobileActivityMenu">
+                    <button class="w-full text-left py-2 text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center justify-between">
                         校园活动
-                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                        <i class="fa fa-chevron-down text-xs"></i>
                     </button>
-                    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
-                        <div class="py-1" role="menu">
-                            <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">活动相册</a>
-                        </div>
+                    <div class="hidden pl-4 py-2" id="mobileActivitySubmenu">
+                        <a href="gallery.html" class="season-item season-gallery">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-camera activity-album-icon"></i>
+                            </div>
+                            <span class="season-text">活动相册</span>
+                        </a>
                     </div>
                 </div>
-                <a href="motto.html" class="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">石大校训</a>
-                
-                
+                <a href="motto.html" class="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">校训故事</a>
             </div>
         </div>
     </nav>
@@ -94,10 +169,10 @@
     <!-- 轮播图 -->
     <div class="relative h-[100vh] overflow-hidden">
         <div class="absolute inset-0 bg-black/30 z-10"></div>
-        <div class="slideshow-container h-full">
+        <div class="slideshow-container h-full group">
             <!-- 幻灯片1 -->
             <div class="slide absolute inset-0 transition-opacity duration-1500 opacity-0 active">
-                <img src="images\spring.jpg" alt="春季校园" class="w-full h-full object-cover">
+                <img src="images/spring.jpg" alt="春季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-20 transform translate-y-0 transition-transform duration-500">
                     <h2 class="text-[clamp(1.5rem,5vw,3rem)] font-bold text-white text-shadow mb-2">春季校园</h2>
                     <p class="text-[clamp(1rem,2vw,1.25rem)] text-white text-shadow max-w-3xl">春天是万物复苏的季节，校园里樱花盛开，一片粉色的海洋。</p>
@@ -109,7 +184,7 @@
             
             <!-- 幻灯片2 -->
             <div class="slide absolute inset-0 transition-opacity duration-1500 opacity-0">
-                <img src="images\playground_su.jpg" alt="夏季校园" class="w-full h-full object-cover">
+                <img src="images/playground_su.jpg" alt="夏季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-20 transform translate-y-0 transition-transform duration-500">
                     <h2 class="text-[clamp(1.5rem,5vw,3rem)] font-bold text-white text-shadow mb-2">夏季校园</h2>
                     <p class="text-[clamp(1rem,2vw,1.25rem)] text-white text-shadow max-w-3xl">夏天是充满活力的季节，绿树成荫，蝉鸣阵阵。</p>
@@ -121,7 +196,7 @@
             
             <!-- 幻灯片3 -->
             <div class="slide absolute inset-0 transition-opacity duration-1500 opacity-0">
-                <img src="images\autumn\a.jpg" alt="秋季校园" class="w-full h-full object-cover">
+                <img src="images/autumn/a.jpg" alt="秋季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-20 transform translate-y-0 transition-transform duration-500">
                     <h2 class="text-[clamp(1.5rem,5vw,3rem)] font-bold text-white text-shadow mb-2">秋季校园</h2>
                     <p class="text-[clamp(1rem,2vw,1.25rem)] text-white text-shadow max-w-3xl">秋天是收获的季节，校园里金黄的树叶飘落，美不胜收。</p>
@@ -133,7 +208,7 @@
             
             <!-- 幻灯片4 -->
             <div class="slide absolute inset-0 transition-opacity duration-1500 opacity-0">
-                <img src="images\winter-5.jpg" alt="冬季校园" class="w-full h-full object-cover">
+                <img src="images/winter-5.jpg" alt="冬季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-20 transform translate-y-0 transition-transform duration-500">
                     <h2 class="text-[clamp(1.5rem,5vw,3rem)] font-bold text-white text-shadow mb-2">冬季校园</h2>
                     <p class="text-[clamp(1rem,2vw,1.25rem)] text-white text-shadow max-w-3xl">冬天是宁静的季节，白雪皑皑的校园别有一番风味。</p>
@@ -221,7 +296,7 @@
                 <!-- 春季 -->
                 <div class="rounded-xl overflow-hidden shadow-md group">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="images\icup.jpg" alt="春季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="images/icup.jpg" alt="春季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6">
                             <h3 class="text-xl font-bold text-white">春季校园</h3>
@@ -239,7 +314,7 @@
                 <!-- 夏季 -->
                 <div class="rounded-xl overflow-hidden shadow-md group">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="images\xiaoyuanquanjing.jpg" alt="夏季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="images/xiaoyuanquanjing.jpg" alt="夏季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6">
                             <h3 class="text-xl font-bold text-white">夏季校园</h3>
@@ -257,7 +332,7 @@
                 <!-- 秋季 -->
                 <div class="rounded-xl overflow-hidden shadow-md group">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="images\autumn\1.jpg" alt="秋季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="images/autumn/1.jpg" alt="秋季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6">
                             <h3 class="text-xl font-bold text-white">秋季校园</h3>
@@ -275,7 +350,7 @@
                 <!-- 冬季 -->
                 <div class="rounded-xl overflow-hidden shadow-md group">
                     <div class="relative h-64 overflow-hidden">
-                        <img src="images\winter-5.jpg" alt="冬季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <img src="images/winter-5.jpg" alt="冬季校园" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-6">
                             <h3 class="text-xl font-bold text-white">冬季校园</h3>
@@ -293,86 +368,86 @@
         </div>
     </section>
 
- <!-- 校园活动 -->
-<section class="py-16 px-4 bg-white">
-    <div class="container mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-gray-800 mb-4">校园活动</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">参与丰富多彩的校园活动，体验精彩大学生活</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- 活动1 -->
-            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm group hover:shadow-md transition-shadow duration-300">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images\gallery\fishing\scene4.png" alt="校园活动" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute top-3 left-3 bg-green-500 text-white text-xs px-3 py-1 rounded-full">
-                        捕鱼节
+    <!-- 校园活动 -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-gray-800 mb-4">校园活动</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">参与丰富多彩的校园活动，体验精彩大学生活</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 活动1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm group hover:shadow-md transition-shadow duration-300 hover:-translate-y-1 hover:scale-105">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/gallery/fishing/scene4.png" alt="校园活动" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-3 left-3 bg-green-500 text-white text-xs px-3 py-1 rounded-full">
+                            捕鱼节
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fa fa-calendar-o mr-2"></i>
+                            <span>2025年6月02日</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">红山湖捕鱼节</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">🎣 毕业季必玩！好玩，更好吃，现场气氛热烈，吸引了众多师生参与！</p>
+                        <a href="gallery.html" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="p-6">
-                    <div class="flex items-center text-gray-500 text-sm mb-3">
-                        <i class="fa fa-calendar-o mr-2"></i>
-                        <span>2025年6月02日</span>
+                
+                <!-- 活动2 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm group hover:shadow-md transition-shadow duration-300 hover:-translate-y-1 hover:scale-105">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/gallery/sports/main.png" alt="中石大运动会" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-3 left-3 bg-blue-500 text-white text-xs px-3 py-1 rounded-full">
+                            中石大运动会
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">红山湖捕鱼节</h3>
-                    <p class="text-gray-600 mb-4 line-clamp-3">🎣 毕业季必玩！好玩，更好吃，现场气氛热烈，吸引了众多师生参与！</p>
-                    <a href="gallery.html" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
-                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                    </a>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fa fa-calendar-o mr-2"></i>
+                            <span>2025年4月27日</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">中石大运动会成功举办</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">🏃‍♂️ 锐意进取，风华正茂,校区第八届春季田径运动会在红旗操场燃情开赛!</p>
+                        <a href="gallery.html" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 活动3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm group hover:shadow-md transition-shadow duration-300 hover:-translate-y-1 hover:scale-105">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="images/gallery/graduation/main.png" alt="石大毕业季" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute top-3 left-3 bg-purple-500 text-white text-xs px-3 py-1 rounded-full">
+                            石大毕业季
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-gray-500 text-sm mb-3">
+                            <i class="fa fa-calendar-o mr-2"></i>
+                            <span>2025年5月30日</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">2025届留疆毕业生</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">"到祖国最需要的地方去"留疆毕业生出征仪式暨克拉玛依高校学生扎根边疆立志签名活动在校区德政广场举行</p>
+                        <a href="gallery.html" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
+                            查看详情 <i class="fa fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             
-            <!-- 活动2 -->
-            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm group hover:shadow-md transition-shadow duration-300">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images\gallery\sports\main.png" alt="中石大运动会" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute top-3 left-3 bg-blue-500 text-white text-xs px-3 py-1 rounded-full">
-                        中石大运动会
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center text-gray-500 text-sm mb-3">
-                        <i class="fa fa-calendar-o mr-2"></i>
-                        <span>2025年4月27日</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">中石大运动会成功举办</h3>
-                    <p class="text-gray-600 mb-4 line-clamp-3"></p>🏃‍♂️ 锐意进取，风华正茂,校区第八届春季田径运动会在红旗操场燃情开赛!</p>
-                    <a href="gallery.html" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
-                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- 活动3 -->
-            <div class="bg-gray-50 rounded-xl overflow-hidden shadow-sm group hover:shadow-md transition-shadow duration-300">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="images\gallery\graduation\main.png" alt="石大毕业季" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    <div class="absolute top-3 left-3 bg-purple-500 text-white text-xs px-3 py-1 rounded-full">
-                        石大毕业季
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center text-gray-500 text-sm mb-3">
-                        <i class="fa fa-calendar-o mr-2"></i>
-                        <span>2025年5月30日</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">2025届留疆毕业生</h3>
-                    <p class="text-gray-600 mb-4 line-clamp-3">"到祖国最需要的地方去"留疆毕业生出征仪式暨克拉玛依高校学生扎根边疆立志签名活动在校区德政广场举行</p>
-                    <a href="gallery.html" class="inline-flex items-center text-green-600 hover:text-green-700 font-medium">
-                        查看详情 <i class="fa fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
+            <div class="text-center mt-10">
+                <a href="gallery.html" class="inline-block px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    活动相册 <i class="fa fa-camera activity-album-icon"></i>
+                </a>
             </div>
         </div>
-        
-        <div class="text-center mt-10">
-            <a href="gallery.html" class="inline-block  px-6 py-3 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-                活动相册 <i class="fa fa-camera ml-2"></i>
-            </a>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- 石大精神-->
     <section class="py-16 px-4 bg-gray-50 relative overflow-hidden">
@@ -418,10 +493,12 @@
                     <div class="rounded-2xl overflow-hidden shadow-2xl">
                         <div class="relative aspect-video bg-gray-900">
                             <video controls poster="" class="w-full h-full object-cover">
-                                <source src="video\宣传片.mp4" type="video/mp4">
+                                <source src="video/宣传片.mp4" type="video/mp4">
                                 您的浏览器不支持视频标签。
                             </video>
+                        </div>
                     </div>
+                </div>
             </div>
         </div>
     </section>
@@ -446,7 +523,12 @@
                         <li><a href="summer.html" class="text-gray-400 hover:text-green-400 transition-colors">夏季校园</a></li>
                         <li><a href="autumn.html" class="text-gray-400 hover:text-green-400 transition-colors">秋季校园</a></li>
                         <li><a href="winter.html" class="text-gray-400 hover:text-green-400 transition-colors">冬季校园</a></li>
-                        <li><a href="gallery.html" class="text-gray-400 hover:text-green-400 transition-colors">活动相册</a></li>
+                        <li><a href="gallery.html" class="season-item season-gallery">
+                            <div class="season-icon inline-block">
+                                <i class="fa fa-camera activity-album-icon"></i>
+                            </div>
+                            <span class="season-text">活动相册</span>
+                        </a></li>
                         <li><a href="motto.html" class="text-gray-400 hover:text-green-400 transition-colors">石大精神</a></li>
                     </ul>
                 </div>
