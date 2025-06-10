@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春季校园 - 校园四季</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/seasons.css" rel="stylesheet">
+    <link href="css/music-1.css" rel="stylesheet">
+    <link href="css/spring-1.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white/60 backdrop-blur-md shadow-sm fixed w-full z-50 transition-all duration-300" id="mainNav">
+        <div class="container  mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+              <img src="images/school_logo.png" alt="石大校园标志" class="w-12 h-12 object-contain">
+              <span class="text-xl font-bold text-gray-800">石大校园</span>
+            </a>
+            
+            <!-- 桌面端导航 -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">首页</a>
+                <div class="relative group">
+                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                        校园四季
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
+                        <div class="py-1" role="menu">
+                            <a href="spring.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">春季</a>
+                            <a href="summer.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">夏季</a>
+                            <a href="autumn.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">秋季</a>
+                            <a href="winter.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">冬季</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                        校园活动
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
+                        <div class="py-1" role="menu">
+                            <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">活动相册</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="motto.html" class="text-gray-700 hover:text-green-600 transition-colors font-medium">石大精神</a>
+                
+                
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="md:hidden text-gray-700 focus:outline-none" id="menuBtn">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform -translate-y-full opacity-0 invisible transition-all duration-300" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">首页</a>
+                <div class="relative" id="mobileSeasonMenu">
+                    <button class="w-full text-left py-2 text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center justify-between">
+                        校园四季
+                        <i class="fa fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="hidden pl-4 py-2" id="mobileSeasonSubmenu">
+                        <a href="spring.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">春季</a>
+                        <a href="summer.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">夏季</a>
+                        <a href="autumn.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">秋季</a>
+                        <a href="winter.html" class="block py-1 text-sm text-gray-700 hover:text-green-600 transition-colors">冬季</a>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <button class="text-gray-700 hover:text-green-600 transition-colors font-medium flex items-center">
+                        校园活动
+                        <i class="fa fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100">
+                        <div class="py-1" role="menu">
+                            <a href="gallery.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-green-600 transition-colors">活动相册</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="motto.html" class="block py-2 text-gray-700 hover:text-green-600 transition-colors font-medium">石大校训</a>
+                
+                
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 页面标题 -->
+    <header class="pt-24 pb-20 gradient-animate text-white relative overflow-hidden">
+        <!-- 粒子背景 -->
+        <div class="particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 3.5s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 2.5s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="float-animation">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 text-shadow-lg">
+                    <span class="inline-block hover:rotate-6 transition-transform duration-300">🌸</span>
+                    春季校园
+                    <span class="inline-block hover:-rotate-6 transition-transform duration-300">🌺</span>
+                </h1>
+            </div>
+              <!-- 音乐播放器 -->
+                    <div class="music-player" id="musicPlayer">
+                        <img src="images\school_logo.png" alt="背景音乐封面" id="playerImg">
+                        <div class="player-controls">
+                            <i class="fa fa-play" id="playBtn"></i>
+                            <input type="range" min="0" max="100" value="50" id="volumeSlider">
+                            <i class="fa fa-volume-up" id="volumeBtn"></i>
+                        </div>
+                    </div>
+            <p class="text-xl md:text-3xl max-w-4xl mx-auto mb-8 typewriter font-light leading-relaxed">
+                春天是万物复苏的季节，校园里百花齐放，一片生机勃勃的景象
+            </p>
+            
+            <!-- 添加诗句 -->
+            <div class="section-poem max-w-2xl mx-auto mb-8">
+                <h3>🌸 春韵诗语</h3>
+                <p>
+                    "春色满园关不住，一枝红杏出墙来"<br>
+                    春风拂面暖人心，校园处处是生机
+                </p>
+            </div>
+            
+           <button id="scrollBtn" class="bg-white/20 backdrop-blur-lg text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/30 transition-all duration-300 border border-white/30 glow">
+                <i class="fa fa-play mr-2"></i>
+                探索春日美景
+            </button>
+        </div>
+        
+        <!-- 装饰性元素 -->
+        <div class="absolute top-20 left-10 text-6xl opacity-20 animate-bounce" style="animation-delay: 1s;">🌸</div>
+        <div class="absolute top-40 right-20 text-8xl opacity-10 animate-pulse" style="animation-delay: 2s;">🌺</div>
+        <div class="absolute bottom-20 left-1/4 text-5xl opacity-15 animate-bounce" style="animation-delay: 0.5s;">🌷</div>
+    </header>
+
+    <!-- 内容区 -->
+    <main class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <!-- 季节介绍 -->
+            <section class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">春天的校园</h2>
+                        <p class="text-gray-600 mb-6">树木抽出嫩绿的新芽，樱花、桃花、玉兰花竞相开放，把校园装扮得五彩缤纷。</p>
+                        <p class="text-gray-600 mb-6">从三月到五月，教学楼旁、宿舍楼下、操场边，到处都能看到盛开的花朵，吸引师生们驻足欣赏。</p>
+                        <p class="text-gray-600 mb-6">同学们也活跃起来，有的在草坪上读书聊天，有的拿着手机拍下春天的美景，还有的干脆躺在阳光下享受温暖。</p>
+                        
+                        <!-- 添加诗句 -->
+                        <div class="poem-text">
+                            "一年之计在于春"<br>
+                            春意盎然满校园，生机勃勃展新颜
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/icup.jpg" alt="春日校园全景" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-xl overflow-hidden shadow-lg hidden md:block">
+                            <img src="images/dinxiang.jpg" alt="丁香" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 春季活动 -->
+            <section class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-10 text-center">春季<span class="text-pink-500">活动</span></h2>
+                
+                <!-- 添加诗句 -->
+                <div class="section-poem max-w-3xl mx-auto mb-12">
+                    <h3>🌺 春日活动</h3>
+                    <p>
+                        "春色满园关不住，一枝红杏出墙来"<br>
+                        春风拂面暖人心，校园处处是生机
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="images/malasong.jpg" alt="迷你马拉松" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">迷你马拉松</h3>
+                            <p class="text-gray-600 mb-4">奔跑是一颗种子，让他们在祖国最需要的地方扎根。</p>
+                            <div class="poem-text text-sm">
+                                "春风得意马蹄疾"<br>
+                                奔跑在春天的校园
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar mr-2"></i>
+                                <span>3月下旬</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="images/yundonghui.jpg" alt="春季运动会" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">春季运动会</h3>
+                            <p class="text-gray-600 mb-4">每年四月，学校都会举办春季运动会，同学们可以参加各种体育项目，展现自己的运动风采。</p>
+                            <div class="poem-text text-sm">
+                                "春来江水绿如蓝"<br>
+                                运动场上展英姿
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar mr-2"></i>
+                                <span>4月下旬</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="h-52 overflow-hidden">
+                            <img src="images/shaguo.jpg" alt="沙果" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">花卉绽放</h3>
+                            <p class="text-gray-600 mb-4">在校园中的花卉尽数绽放后，学生们可以欣赏到各种美丽的花卉，了解花卉知识。</p>
+                            <div class="poem-text text-sm">
+                                "花开堪折直须折"<br>
+                                春色满园关不住
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar mr-2"></i>
+                                <span>4月下旬</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 春季美景 -->
+            <section>
+                <h2 class="text-3xl font-bold text-gray-800 mb-10 text-center">春季<span class="text-pink-500">美景</span></h2>
+                
+                <!-- 添加诗句 -->
+                <div class="section-poem max-w-3xl mx-auto mb-12">
+                    <h3>🌷 春色满园</h3>
+                    <p>
+                        "春色满园关不住，一枝红杏出墙来"<br>
+                        看万山红遍，层林尽染；漫江碧透，百舸争流
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                        <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+                            <img src="images/spring.jpg" alt="立春" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-gray-800">立春</h3>
+                            <p class="text-gray-600 text-sm mb-2">冬寒未散，春意已萌，万物始新，大地初醒的第一声问候。</p>
+                            <div class="poem-text text-xs">
+                                "春色满园关不住"
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                        <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+                            <img src="images/yuyemei.jpg" alt="榆叶梅" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-gray-800">榆叶梅</h3>
+                            <p class="text-gray-600 text-sm mb-2">榆叶梅绽放出粉嫩的花朵，密密匝匝缀满枝头，为校园增添一抹亮丽的色彩。</p>
+                            <div class="poem-text text-xs">
+                                "春色满园关不住"
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                        <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+                            <img src="images/lake.jpg" alt="湖边春色" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-gray-800">湖边春色</h3>
+                            <p class="text-gray-600 text-sm mb-2">微风轻拂，柳枝新绿点水，暖阳撒下碎金，湖边春意悄然荡漾。</p>
+                            <div class="poem-text text-xs">
+                                "春色满园关不住"
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                        <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+                            <img src="images/malan.jpg" alt="马兰花开" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-gray-800">马兰花开</h3>
+                            <p class="text-gray-600 text-sm mb-2">马兰花是早春的坚韧使者，淡紫花朵为大地披上第一抹浪漫。</p>
+                            <div class="poem-text text-xs">
+                                "春色满园关不住"
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                        <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+                            <img src="images/Rainbow.jpg" alt="雨后彩虹" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-gray-800">雨后彩虹</h3>
+                            <p class="text-gray-600 text-sm mb-2">雨霁云开时，阳光折射出的七彩光弧，短暂却明亮，为天空添一抹绚丽。</p>
+                            <div class="poem-text text-xs">
+                                "春色满园关不住"
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group">
+                        <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+                            <img src="images/cupk.jpg" alt="春日校园" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-4 bg-white">
+                            <h3 class="font-bold text-gray-800">春日校园</h3>
+                            <p class="text-gray-600 text-sm mb-2">春日的校园，阳光明媚，空气清新，充满生机活力。</p>
+                            <div class="poem-text text-xs">
+                                "春色满园关不住"
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-8 flex items-center"> 
+                    <img src="images/school_logo.png" alt="校园四季标志" class="w-20 h-20 object-contain">
+                    石大校园
+                    </h3>
+                    <p class="text-gray-400 mb-6">探索校园四季的美景，感受大自然的变化与魅力。</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">石大传送门</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-green-400 transition-colors">首页</a></li>
+                        <li><a href="spring.html" class="text-gray-400 hover:text-green-400 transition-colors">春季校园</a></li>
+                        <li><a href="summer.html" class="text-gray-400 hover:text-green-400 transition-colors">夏季校园</a></li>
+                        <li><a href="autumn.html" class="text-gray-400 hover:text-green-400 transition-colors">秋季校园</a></li>
+                        <li><a href="winter.html" class="text-gray-400 hover:text-green-400 transition-colors">冬季校园</a></li>
+                        <li><a href="gallery.html" class="text-gray-400 hover:text-green-400 transition-colors">活动相册</a></li>
+                        <li><a href="motto.html" class="text-gray-400 hover:text-green-400 transition-colors">石大精神</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">新疆克拉玛依市克拉玛依区安定路355号</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+86 1314520</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-green-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">ilovecupk.edu.cn</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">订阅更新</h3>
+                    <p class="text-gray-400 mb-4">订阅我们的网页，获取校园美景和活动信息。</p>
+                    <form class="space-y-3">
+                        <div>
+                            <input type="email" placeholder="您的邮箱地址" class="w-full px-4 py-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400">
+                        </div>
+                        <button type="submit" class="w-full px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium">
+                            订阅
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 石大校园. 保留所有权利.</p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-green-400 transition-colors text-sm">隐私政策</a>
+                        <a href="#" class="text-gray-500 hover:text-green-400 transition-colors text-sm">使用条款</a>
+                        <a href="#" class="text-gray-500 hover:text-green-400 transition-colors text-sm">Cookie政策</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javascript/menu.js"></script>
+    <script src="javascript/turn.js"></script>
+    <script src="javascript/music-1.js"></script>
+</body>
+</html>
